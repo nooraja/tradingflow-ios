@@ -1,4 +1,3 @@
-/Users/noor/.rvm/scripts/rvm:29: operation not permitted: ps
 # TradingFlow iOS
 
 Aplikasi UIKit dari light mode Figma TradingFlow. Seluruh file Swift aplikasi berada langsung di folder utama target, tanpa pengelompokan subfolder.

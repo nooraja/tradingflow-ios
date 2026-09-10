@@ -1,0 +1,7 @@
+// Safe defaults. Local values are loaded from the ignored file below.
+SUPABASE_URL =
+SUPABASE_PUBLISHABLE_KEY =
+TRADINGFLOW_API_BASE_URL =
+DEVELOPMENT_TEAM =
+
+#include? "Secrets.xcconfig"

@@ -1,0 +1,27 @@
+# Local credentials and environment overrides
+tradingflow-ios/Config/Secrets.xcconfig
+.env
+.env.*
+!.env.example
+
+# Xcode user state and build products
+xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+.DS_Store
+
+# Signing credentials
+*.p12
+*.pem
+*.p8
+*.key
+*.cer
+*.der
+*.mobileprovision
+*.provisionprofile
+*.jks
+*.keystore
+
+# Third-party service configuration
+GoogleService-Info.plist
