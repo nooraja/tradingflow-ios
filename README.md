@@ -4,17 +4,17 @@ Aplikasi UIKit dari light mode Figma TradingFlow. Seluruh file Swift aplikasi be
 
 ## Jalankan
 
-1. Untuk API publik, cukup buka aplikasi; default API mengarah ke deployment HTTPS.
-2. Untuk backend lokal, jalankan backend dari direktori service-be dengan make run dan ganti TradingFlowAPIBaseURL menjadi alamat lokal.
-3. Buka tradingflow-ios/tradingflow-ios.xcodeproj.
-4. Pilih scheme tradingflow-ios dan iPhone Simulator, lalu Run.
+1. Salin `tradingflow-ios/Config/Secrets.xcconfig.example` menjadi `tradingflow-ios/Config/Secrets.xcconfig`.
+2. Isi URL API, URL Supabase, dan Supabase publishable key pada file lokal tersebut.
+3. Buka `tradingflow-ios/tradingflow-ios.xcodeproj`.
+4. Pilih scheme `tradingflow-ios` dan iPhone Simulator, lalu Run.
 
 Target minimum mengikuti proyek awal: iOS 26.5. Tidak ada dependency pihak ketiga.
-Alamat default API adalah deployment HTTPS TradingFlow. Key Finnhub tetap di backend.
+Clone baru tidak memuat alamat maupun key lokal. Key Finnhub tetap berada di backend.
 
 ## Konfigurasi autentikasi
 
-Isi SupabasePublishableKey di Info.plist target dengan publishable key proyek yang sama dengan runtime backend. URL proyek sudah tercantum pada SupabaseURL. Publishable key aman berada di aplikasi; jangan pernah memasukkan secret key, service-role key, Finnhub key, atau LOCAL_API_TOKEN.
+Isi `SUPABASE_URL` dan `SUPABASE_PUBLISHABLE_KEY` pada `Secrets.xcconfig` dengan konfigurasi proyek yang sama dengan runtime backend. Publishable key boleh digunakan oleh aplikasi client; jangan pernah memasukkan secret key, service-role key, Finnhub key, atau `LOCAL_API_TOKEN`.
 
 Untuk pengembangan Simulator, Anda juga dapat memberi dua environment variable pada scheme:
 
@@ -29,7 +29,7 @@ Sakelar **Ingat alamat email** menyimpan hanya alamat email di UserDefaults sete
 
 Setiap UIView aplikasi mendapat accessibilityIdentifier. Target interaktif autentikasi memakai identifier yang eksplisit, misalnya `auth.login.emailField`, `auth.login.passwordField`, `auth.login.submitButton`, dan `auth.signup.submitButton`. Komponen lain, termasuk kartu dan konten yang dirender dari API, memperoleh identifier deterministik dari layar, posisi hierarki, dan tipe UIView ketika layout berjalan.
 
-Base URL dapat diubah lewat TradingFlowAPIBaseURL di Info.plist atau environment variable TRADINGFLOW_API_URL pada scheme Xcode. Simulator dapat mengakses loopback Mac. Perangkat fisik membutuhkan backend yang dapat dijangkau dari perangkat; backend saat ini hanya mendengarkan loopback, sehingga mengganti URL saja tidak cukup. Gunakan tunnel HTTPS yang Anda kelola jika ingin menjalankan pada perangkat.
+Base URL diatur lewat `TRADINGFLOW_API_BASE_URL` pada `Secrets.xcconfig` atau environment variable `TRADINGFLOW_API_URL` pada scheme Xcode. Simulator dapat mengakses loopback Mac. Perangkat fisik membutuhkan backend yang dapat dijangkau dari perangkat; backend saat ini hanya mendengarkan loopback, sehingga mengganti URL saja tidak cukup. Gunakan tunnel HTTPS yang Anda kelola jika ingin menjalankan pada perangkat.
 
 ## Konfigurasi lokal dan secret
 
